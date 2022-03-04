@@ -5,23 +5,21 @@ InputDecoration registerInputDecoration(
     {required String hintText, required bool isSignIn}) {
   return InputDecoration(
     contentPadding: const EdgeInsets.symmetric(vertical: 18.0),
-    hintStyle: TextStyle(
-        color: isSignIn ? Pallet.darkBlue : Colors.white, fontSize: 18),
+    hintStyle: const TextStyle(color: Colors.white, fontSize: 18),
     hintText: hintText,
-    focusedBorder: UnderlineInputBorder(
-      borderSide: BorderSide(
-          color: isSignIn ? Pallet.darkBlue : Colors.white, width: 2),
+    focusedBorder: const UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.white, width: 2),
     ),
-    enabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: isSignIn ? Pallet.darkBlue : Colors.white),
+    enabledBorder: const UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.white),
     ),
-    errorBorder: UnderlineInputBorder(
+    errorBorder: const UnderlineInputBorder(
       borderSide: BorderSide(color: Pallet.orange),
     ),
     focusedErrorBorder: const UnderlineInputBorder(
       borderSide: BorderSide(width: 2.0, color: Pallet.orange),
     ),
-    errorStyle: TextStyle(color: isSignIn ? Pallet.darkBlue : Colors.white),
+    errorStyle: const TextStyle(color: Colors.white),
   );
 }
 

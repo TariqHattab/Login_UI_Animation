@@ -1,3 +1,4 @@
+import 'package:custom_animations_playground/utils/funcs.dart';
 import 'package:custom_animations_playground/utils/pallet.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -69,6 +70,9 @@ class SignInBar extends StatelessWidget {
               fontSize: 24,
             ),
           ),
+          SizedBox(
+            width: 10,
+          ),
           Expanded(
             child: Center(
               child: _LoadingIndicator(isLoading: isLoading),
@@ -123,8 +127,10 @@ class _RoundContinueButton extends StatelessWidget {
       splashColor: Pallet.darkOrange,
       padding: const EdgeInsets.all(22.0),
       shape: const CircleBorder(),
-      child: const Icon(
-        FontAwesomeIcons.longArrowAltRight,
+      child: Icon(
+        isArLang(context)
+            ? FontAwesomeIcons.longArrowAltLeft
+            : FontAwesomeIcons.longArrowAltRight,
         color: Colors.white,
         size: 24.0,
       ),

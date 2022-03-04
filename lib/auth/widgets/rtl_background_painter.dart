@@ -5,8 +5,8 @@ import 'package:custom_animations_playground/utils/pallet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class LTRPainter extends CustomPainter {
-  LTRPainter({required Animation<double> animation})
+class RTLPainter extends CustomPainter {
+  RTLPainter({required Animation<double> animation})
       : tempAnim = animation,
         bluePaint = Paint()
           ..color = Pallet.lightBlue
@@ -62,11 +62,11 @@ class LTRPainter extends CustomPainter {
 
   _paintBlue(Size size, Canvas canvas) {
     var path = Path();
-    path.moveTo(size.width, size.height / 2);
-    path.lineTo(size.width, 0);
+    path.moveTo(0, size.height / 2);
     path.lineTo(0, 0);
+    path.lineTo(size.width, 0);
     path.lineTo(
-      0,
+      size.width,
       // 0,
       lerpDouble(0, size.height, blueAnim.value) ?? 0,
     );
@@ -80,17 +80,15 @@ class LTRPainter extends CustomPainter {
 
     _addPointsToPath(path, [
       Point(
-        lerpDouble(0, size.width / 3, blueAnim.value) ?? 0,
+        lerpDouble(size.width, size.width * 2 / 3, blueAnim.value) ?? 0,
         lerpDouble(0, size.height, blueAnim.value) ?? 0,
       ),
       Point(
-        lerpDouble(size.width / 2, size.width * 3 / 4, liquidAnim.value) ?? 0,
+        lerpDouble(size.width / 2, size.width * 1 / 4, liquidAnim.value) ?? 0,
         lerpDouble(size.height / 2, size.height * 3 / 4, liquidAnim.value) ?? 0,
       ),
       Point(
-        size.width,
-        // size.width + size.width / 25,
-        // lerpDouble(size.height / 2, size.height * 47 / 64, liquidAnim.value) ??
+        0,
         lerpDouble(size.height / 2, size.height * 3 / 4, liquidAnim.value) ?? 0,
       ),
     ]);
@@ -100,11 +98,11 @@ class LTRPainter extends CustomPainter {
 
   void _paintGrey(Size size, Canvas canvas) {
     final path = Path();
-    path.moveTo(size.width, 300);
-    path.lineTo(size.width, 0);
+    path.moveTo(0, 300);
     path.lineTo(0, 0);
+    path.lineTo(size.width, 0);
     path.lineTo(
-      0,
+      size.width,
       lerpDouble(
             size.height / 4,
             size.height / 2,
@@ -116,20 +114,20 @@ class LTRPainter extends CustomPainter {
       path,
       [
         Point(
-          size.width / 4,
+          size.width * 3 / 4,
           lerpDouble(size.height / 2, size.height * 3 / 4, liquidAnim.value) ??
               0,
         ),
         Point(
-          size.width * 3 / 5,
+          size.width * 2 / 5,
           lerpDouble(size.height / 4, size.height / 2, liquidAnim.value) ?? 0,
         ),
         Point(
-          size.width * 4 / 5,
+          size.width * 1 / 5,
           lerpDouble(size.height / 6, size.height / 3, greyAnim.value) ?? 0,
         ),
         Point(
-          size.width,
+          0,
           lerpDouble(size.height / 5, size.height / 4, greyAnim.value) ?? 0,
         ),
       ],
@@ -142,28 +140,28 @@ class LTRPainter extends CustomPainter {
     if (orangeAnim.value > 0) {
       final path = Path();
 
-      path.moveTo(size.width * 3 / 4, 0);
-      path.lineTo(0, 0);
+      path.moveTo(size.width * 1 / 4, 0);
+      path.lineTo(size.width, 0);
       path.lineTo(
-        0,
+        size.width,
         lerpDouble(0, size.height / 12, orangeAnim.value) ?? 0,
       );
 
       _addPointsToPath(path, [
         Point(
-          size.width / 7,
+          size.width * 6 / 7,
           lerpDouble(0, size.height / 6, liquidAnim.value) ?? 0,
         ),
         Point(
-          size.width / 3,
+          size.width * 2 / 3,
           lerpDouble(0, size.height / 10, liquidAnim.value) ?? 0,
         ),
         Point(
-          size.width / 3 * 2,
+          size.width * 1 / 3,
           lerpDouble(0, size.height / 8, liquidAnim.value) ?? 0,
         ),
         Point(
-          size.width * 3 / 4,
+          size.width * 1 / 4,
           0,
         ),
       ]);

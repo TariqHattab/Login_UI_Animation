@@ -1,6 +1,10 @@
 import 'package:custom_animations_playground/auth/widgets/decoration_functions.dart';
 import 'package:custom_animations_playground/auth/widgets/sign_bar.dart';
+import 'package:custom_animations_playground/lang/lang.dart';
+import 'package:custom_animations_playground/utils/funcs.dart';
+import 'package:custom_animations_playground/utils/pallet.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({
@@ -15,13 +19,13 @@ class SignUp extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Expanded(
+          Expanded(
             flex: 3,
             child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: AlignmentDirectional.centerStart,
                 child: Text(
-                  'Create\nAccount',
-                  style: TextStyle(
+                  tr(context).createAccount,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize: 34,
@@ -41,7 +45,7 @@ class SignUp extends StatelessWidget {
                         color: Colors.white,
                       ),
                       decoration: registerInputDecoration(
-                          hintText: 'Email', isSignIn: false),
+                          hintText: tr(context).email, isSignIn: false),
                       autocorrect: false,
                       // onChanged: (value) => context
                       //     .read<SignInHandlerStateNotifier>()
@@ -66,7 +70,7 @@ class SignUp extends StatelessWidget {
                         color: Colors.white,
                       ),
                       decoration: registerInputDecoration(
-                          hintText: 'Password', isSignIn: false),
+                          hintText: tr(context).password, isSignIn: false),
                       validator: (value) {
                         const emailRegex =
                             r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
@@ -78,27 +82,43 @@ class SignUp extends StatelessWidget {
                       }),
                 ),
                 SignUpBar(
-                  label: 'Sign up',
+                  label: tr(context).signUp,
                   isLoading: true,
                   onPressed: () {},
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: InkWell(
-                    // highlightColor: Colors.white,
-                    splashColor: Colors.white,
-                    onTap: () {
-                      onSignInClicked();
-                    },
-                    child: const Text(
-                      'Sign in',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        decoration: TextDecoration.underline,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      // highlightColor: Colors.white,
+                      splashColor: Colors.white,
+                      onTap: () {
+                        onSignInClicked();
+                      },
+                      child: Text(
+                        tr(context).signIn,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
-                  ),
+                    InkWell(
+                      splashColor: Colors.white,
+                      onTap: () {
+                        context.read<AppLang>().toggleLang();
+                      },
+                      child: Text(
+                        tr(context).language,
+                        style: const TextStyle(
+                          color: Pallet.darkBlue,
+                          fontSize: 16,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

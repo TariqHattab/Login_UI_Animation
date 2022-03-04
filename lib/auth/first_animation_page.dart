@@ -1,9 +1,11 @@
 // import 'package:custom_animations_playground/auth/decoration_functions.dart';
 import 'package:animations/animations.dart';
 import 'package:custom_animations_playground/auth/widgets/background_painter.dart';
+import 'package:custom_animations_playground/auth/widgets/rtl_background_painter.dart';
 import 'package:custom_animations_playground/auth/widgets/sign_bar.dart';
 import 'package:custom_animations_playground/auth/widgets/sign_in.dart';
 import 'package:custom_animations_playground/auth/widgets/sign_up.dart';
+import 'package:custom_animations_playground/utils/funcs.dart';
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {
@@ -38,7 +40,9 @@ class _FirstPageState extends State<FirstPage>
           children: [
             SizedBox.expand(
               child: CustomPaint(
-                painter: TestPainter(animation: _animationController.view),
+                painter: isArLang(context)
+                    ? RTLPainter(animation: _animationController.view)
+                    : LTRPainter(animation: _animationController.view),
                 child: Container(
                   height: 100,
                   width: 100,

@@ -1,7 +1,10 @@
 import 'package:custom_animations_playground/auth/widgets/decoration_functions.dart';
 import 'package:custom_animations_playground/auth/widgets/sign_bar.dart';
+import 'package:custom_animations_playground/lang/lang.dart';
+import 'package:custom_animations_playground/utils/funcs.dart';
 import 'package:custom_animations_playground/utils/pallet.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({
@@ -18,13 +21,13 @@ class SignIn extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Expanded(
+          Expanded(
             flex: 3,
             child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: AlignmentDirectional.centerStart,
                 child: Text(
-                  'Welcom\nback',
-                  style: TextStyle(
+                  tr(context).welcomBack,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize: 34,
@@ -43,8 +46,9 @@ class SignIn extends StatelessWidget {
                         fontSize: 18,
                         color: Pallet.darkBlue,
                       ),
-                      decoration: registerInputDecoration(
-                          hintText: 'Email', isSignIn: true),
+                      decoration: signInInputDecoration(
+                        hintText: tr(context).email,
+                      ),
                       autocorrect: false,
                       // onChanged: (value) => context
                       //     .read<SignInHandlerStateNotifier>()
@@ -66,10 +70,11 @@ class SignIn extends StatelessWidget {
                       obscureText: true,
                       style: const TextStyle(
                         fontSize: 18,
-                        color: Colors.white,
+                        color: Pallet.darkBlue,
                       ),
-                      decoration: registerInputDecoration(
-                          hintText: 'Password', isSignIn: true),
+                      decoration: signInInputDecoration(
+                        hintText: tr(context).password,
+                      ),
                       validator: (value) {
                         if (value?.isNotEmpty ?? false) {
                           return null;
@@ -78,27 +83,43 @@ class SignIn extends StatelessWidget {
                       }),
                 ),
                 SignInBar(
-                  label: 'Sign in',
+                  label: tr(context).signIn,
                   isLoading: true,
                   onPressed: () {},
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: InkWell(
-                    splashColor: Colors.white,
-                    onTap: () {
-                      // print('cliked');
-                      onSignUpClicked();
-                    },
-                    child: const Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        color: Pallet.darkBlue,
-                        fontSize: 16,
-                        decoration: TextDecoration.underline,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      splashColor: Colors.white,
+                      onTap: () {
+                        // print('cliked');
+                        onSignUpClicked();
+                      },
+                      child: Text(
+                        tr(context).signUp,
+                        style: const TextStyle(
+                          color: Pallet.darkBlue,
+                          fontSize: 16,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
-                  ),
+                    InkWell(
+                      splashColor: Colors.white,
+                      onTap: () {
+                        context.read<AppLang>().toggleLang();
+                      },
+                      child: Text(
+                        tr(context).language,
+                        style: const TextStyle(
+                          color: Pallet.darkBlue,
+                          fontSize: 16,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

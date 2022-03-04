@@ -4,10 +4,11 @@
       "description": "The conventional newborn programmer greeting"
     },
     "hello": "hello",
-    "welcomBack": "Welcome Back",
-    "createAccount": "Create Account",
+    "welcomBack": "Welcome\nBack",
+    "createAccount": "Create\nAccount",
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "language": "عربي"
 }
