@@ -1,0 +1,10 @@
+{
+    "helloWorld": "مرحبا بالعالم",
+    "hello": "مرحبا",
+    "welcomBack": "مرحبا بعودتك",
+    "createAccount": "إنشاء حساب",
+    "signIn": "تسجيل الدخول",
+    "signUp": "تسجيل جديد",
+    "email": "ايميل",
+    "password": "كلمة المرور"
+}
