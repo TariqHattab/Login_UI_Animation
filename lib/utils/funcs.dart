@@ -5,4 +5,4 @@ import 'package:provider/provider.dart';
 
 AppLocalizations tr(BuildContext context) => AppLocalizations.of(context)!;
 bool isArLang(BuildContext context) =>
-    (context.watch<AppLang>().selectedLang == Locale("ar"));
+    (context.watch<AppLang>().selectedLang == const Locale("ar"));

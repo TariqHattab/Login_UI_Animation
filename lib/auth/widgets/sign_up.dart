@@ -4,6 +4,7 @@ import 'package:custom_animations_playground/lang/lang.dart';
 import 'package:custom_animations_playground/utils/funcs.dart';
 import 'package:custom_animations_playground/utils/pallet.dart';
 import 'package:flutter/material.dart';
+// ignore: implementation_imports
 import 'package:provider/src/provider.dart';
 
 class SignUp extends StatelessWidget {

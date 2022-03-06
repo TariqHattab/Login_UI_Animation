@@ -2,7 +2,6 @@
 import 'package:animations/animations.dart';
 import 'package:custom_animations_playground/auth/widgets/ltr_painter.dart';
 import 'package:custom_animations_playground/auth/widgets/rtl_painter.dart';
-import 'package:custom_animations_playground/auth/widgets/sign_bar.dart';
 import 'package:custom_animations_playground/auth/widgets/sign_in.dart';
 import 'package:custom_animations_playground/auth/widgets/sign_up.dart';
 import 'package:custom_animations_playground/utils/funcs.dart';
@@ -42,7 +41,7 @@ class _AuthPageState extends State<AuthPage>
               painter: isArLang(context)
                   ? RTLPainter(animation: _animationController.view)
                   : LTRPainter(animation: _animationController.view),
-              child: Container(
+              child: const SizedBox(
                 height: 100,
                 width: 100,
               ),
@@ -54,8 +53,6 @@ class _AuthPageState extends State<AuthPage>
                 return Center(
                   child: PageTransitionSwitcher(
                       reverse: isOpenedValue,
-                      // switchInCurve: SpringCurve(),
-                      // switchOutCurve: Curves.easeInExpo, // Curves.easeInOut,
                       transitionBuilder:
                           (child, animation, seconderyAnimation) {
                         return SharedAxisTransition(
@@ -66,7 +63,7 @@ class _AuthPageState extends State<AuthPage>
                           child: child,
                         );
                       },
-                      duration: Duration(milliseconds: 500),
+                      duration: const Duration(milliseconds: 500),
                       child: isOpenedValue
                           ? SignUp(onSignInClicked: () {
                               isOpened.value = false;

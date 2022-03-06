@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 
 class AppLang extends ChangeNotifier {
-  Locale selectedLang = Locale('ar');
+  Locale selectedLang = const Locale('ar');
 
   toggleLang() {
-    if (selectedLang == Locale('ar')) {
-      selectedLang = Locale('en');
+    if (selectedLang == const Locale('ar')) {
+      selectedLang = const Locale('en');
     } else {
-      selectedLang = Locale('ar');
+      selectedLang = const Locale('ar');
     }
     notifyListeners();
   }

@@ -70,7 +70,7 @@ class SignInBar extends StatelessWidget {
               fontSize: 24,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
           Expanded(

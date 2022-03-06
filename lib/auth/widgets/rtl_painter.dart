@@ -3,7 +3,6 @@ import 'dart:ui';
 
 import 'package:custom_animations_playground/utils/pallet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class RTLPainter extends CustomPainter {
   RTLPainter({required Animation<double> animation})
@@ -53,7 +52,6 @@ class RTLPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    print('painting');
     // canvas.drawPaint(Paint()..color = Colors.red);
     _paintBlue(size, canvas);
     _paintGrey(size, canvas);
@@ -70,14 +68,6 @@ class RTLPainter extends CustomPainter {
       // 0,
       lerpDouble(0, size.height, blueAnim.value) ?? 0,
     );
-    print('blueAnim.value =${blueAnim.value}');
-    print('tempAnim.value =${tempAnim.value}');
-    // path.quadraticBezierTo(blueAnim.value
-    //     size.width * 4.9 / 5, 0, size.width, size.height / 2);
-    var a = size.width / 2;
-    var b = size.width;
-    var t = blueAnim.value;
-
     _addPointsToPath(path, [
       Point(
         lerpDouble(size.width, size.width * 2 / 3, blueAnim.value) ?? 0,
