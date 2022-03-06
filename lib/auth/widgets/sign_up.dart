@@ -48,9 +48,6 @@ class SignUp extends StatelessWidget {
                       decoration: registerInputDecoration(
                           hintText: tr(context).email, isSignIn: false),
                       autocorrect: false,
-                      // onChanged: (value) => context
-                      //     .read<SignInHandlerStateNotifier>()
-                      //     .emailChanged(EmailAddress(value)),
                       validator: (value) {
                         const emailRegex =
                             r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
@@ -91,7 +88,6 @@ class SignUp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      // highlightColor: Colors.white,
                       splashColor: Colors.white,
                       onTap: () {
                         onSignInClicked();

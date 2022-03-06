@@ -33,12 +33,7 @@ class LTRPainter extends CustomPainter {
             parent: animation,
             curve: const Interval(0, .8,
                 curve: Interval(0, .9, curve: SpringCurve())),
-            reverseCurve: Curves.easeInCirc)
-
-        //passing the animation view of the cotroller
-        // so the custom repaint can rebuild on each update
-        // ;
-        ,
+            reverseCurve: Curves.easeInCirc),
         super(repaint: animation);
   final Animation<double> tempAnim;
   final Animation<double> liquidAnim;
@@ -52,7 +47,6 @@ class LTRPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // print('painting');
     _paintBlue(size, canvas);
     _paintGrey(size, canvas);
     _paintOrange(size, canvas);
@@ -65,7 +59,6 @@ class LTRPainter extends CustomPainter {
     path.lineTo(0, 0);
     path.lineTo(
       0,
-      // 0,
       lerpDouble(0, size.height, blueAnim.value) ?? 0,
     );
     _addPointsToPath(path, [
@@ -79,8 +72,6 @@ class LTRPainter extends CustomPainter {
       ),
       Point(
         size.width,
-        // size.width + size.width / 25,
-        // lerpDouble(size.height / 2, size.height * 47 / 64, liquidAnim.value) ??
         lerpDouble(size.height / 2, size.height * 3 / 4, liquidAnim.value) ?? 0,
       ),
     ]);

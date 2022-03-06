@@ -51,9 +51,6 @@ class SignIn extends StatelessWidget {
                         hintText: tr(context).email,
                       ),
                       autocorrect: false,
-                      // onChanged: (value) => context
-                      //     .read<SignInHandlerStateNotifier>()
-                      //     .emailChanged(EmailAddress(value)),
                       validator: (value) {
                         const emailRegex =
                             r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
@@ -94,7 +91,6 @@ class SignIn extends StatelessWidget {
                     InkWell(
                       splashColor: Colors.white,
                       onTap: () {
-                        // print('cliked');
                         onSignUpClicked();
                       },
                       child: Text(

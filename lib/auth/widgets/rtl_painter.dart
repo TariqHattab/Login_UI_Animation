@@ -33,12 +33,7 @@ class RTLPainter extends CustomPainter {
             parent: animation,
             curve: const Interval(0, .8,
                 curve: Interval(0, .9, curve: SpringCurve())),
-            reverseCurve: Curves.easeInCirc)
-
-        //passing the animation view of the cotroller
-        // so the custom repaint can rebuild on each update
-        // ;
-        ,
+            reverseCurve: Curves.easeInCirc),
         super(repaint: animation);
   final Animation<double> tempAnim;
   final Animation<double> liquidAnim;
@@ -52,7 +47,6 @@ class RTLPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // canvas.drawPaint(Paint()..color = Colors.red);
     _paintBlue(size, canvas);
     _paintGrey(size, canvas);
     _paintOrange(size, canvas);
@@ -65,7 +59,6 @@ class RTLPainter extends CustomPainter {
     path.lineTo(size.width, 0);
     path.lineTo(
       size.width,
-      // 0,
       lerpDouble(0, size.height, blueAnim.value) ?? 0,
     );
     _addPointsToPath(path, [
@@ -192,9 +185,6 @@ class Point {
   Point(this.x, this.y);
 }
 
-//for how to make this watch this video
-//  https://www.youtube.com/watch?v=qnnlGcZ8vaQ&ab_channel=FunwithFlutter
-/// Custom curve to give gooey spring effect
 class SpringCurve extends Curve {
   const SpringCurve({
     this.a = 0.15,

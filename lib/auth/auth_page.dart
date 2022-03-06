@@ -1,4 +1,3 @@
-// import 'package:custom_animations_playground/auth/decoration_functions.dart';
 import 'package:animations/animations.dart';
 import 'package:custom_animations_playground/auth/widgets/ltr_painter.dart';
 import 'package:custom_animations_playground/auth/widgets/rtl_painter.dart';
@@ -75,12 +74,6 @@ class _AuthPageState extends State<AuthPage>
                             })),
                 );
               }),
-          // Center(
-          //   child: ElevatedButton(
-          //     child: Text('Animate'),
-          //     onPressed: () => toggleAnimation(),
-          //   ),
-          // )
         ],
       ),
     );
